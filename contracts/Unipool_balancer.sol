@@ -38,6 +38,7 @@ contract LPTokenWrapper {
 
 contract Unipool is LPTokenWrapper, IRewardDistributionRecipient {
     IERC20 public razor = IERC20(0x50de6856358cc35f3a9a57eaaa34bd4cb707d2cd);
+    IERC20 public bal = IERC20(0xba100000625a3754423978a60c9317c58a424e3D);
     uint256 public constant DURATION = 7 days;
 
     uint256 public periodFinish = 0;
@@ -130,5 +131,11 @@ contract Unipool is LPTokenWrapper, IRewardDistributionRecipient {
         lastUpdateTime = block.timestamp;
         periodFinish = block.timestamp.add(DURATION);
         emit RewardAdded(reward);
+    }
+
+    // Claim BAL rewards sent to the contract (if any) to the reserve address / contract,
+    // for either BAL distribution to LPs, or sell BAL and buy back dos, depending on LP voting.
+    function claimBalReward(address reserve) external onlyRewardDistribution {
+        bal.safeTransfer(reserve, bal.balanceOf(address(this)));
     }
 }
