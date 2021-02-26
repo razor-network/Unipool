@@ -10,7 +10,7 @@ contract LPTokenWrapper {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
-    IERC20 public uni = IERC20(0xe9Cf7887b93150D4F2Da7dFc6D502B216438F244);
+    IERC20 public uni = IERC20(0x0f95e6627923848a08232b5fca813c0fb86042b8);
 
     uint256 private _totalSupply;
     mapping(address => uint256) private _balances;
@@ -37,7 +37,7 @@ contract LPTokenWrapper {
 }
 
 contract Unipool is LPTokenWrapper, IRewardDistributionRecipient {
-    IERC20 public snx = IERC20(0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F);
+    IERC20 public razor = IERC20(0x50de6856358cc35f3a9a57eaaa34bd4cb707d2cd);
     uint256 public constant DURATION = 7 days;
 
     uint256 public periodFinish = 0;
@@ -110,7 +110,7 @@ contract Unipool is LPTokenWrapper, IRewardDistributionRecipient {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {
             rewards[msg.sender] = 0;
-            snx.safeTransfer(msg.sender, reward);
+            razor.safeTransfer(msg.sender, reward);
             emit RewardPaid(msg.sender, reward);
         }
     }
