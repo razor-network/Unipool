@@ -10,7 +10,7 @@ contract LPTokenWrapper {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
-    IERC20 public bnb = IERC20(0x618bd037f18012819abd6fF5046d7792D7FE8f0A);
+    IERC20 public bnb = IERC20(0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c);
 
     uint256 private _totalSupply;
     mapping(address => uint256) private _balances;
@@ -36,9 +36,9 @@ contract LPTokenWrapper {
     }
 }
 
-contract Unipool is LPTokenWrapper, IRewardDistributionRecipient {
-    IERC20 public snx = IERC20(0x618bd037f18012819abd6fF5046d7792D7FE8f0A);
-    uint256 public constant DURATION = 1 hours;
+contract bnbRazorRewards is LPTokenWrapper, IRewardDistributionRecipient {
+    IERC20 public razor = IERC20(0x50de6856358cc35f3a9a57eaaa34bd4cb707d2cd);
+    uint256 public constant DURATION = 1 hours;//need to Decide
 
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
