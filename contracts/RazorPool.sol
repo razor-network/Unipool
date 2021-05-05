@@ -38,7 +38,7 @@ contract LPTokenWrapper {
 
 contract razorPool is LPTokenWrapper, IRewardDistributionRecipient {
     IERC20 public razor = IERC20(0x50DE6856358Cc35f3A9a57eAAA34BD4cB707d2cd);
-    uint256 public constant DURATION = 2 days;
+    uint256 public constant DURATION = 90 days;
 
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
