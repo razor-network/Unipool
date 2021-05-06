@@ -36,7 +36,7 @@ contract LPTokenWrapper {
     }
 }
 
-contract RazorPool is LPTokenWrapper, IRewardDistributionRecipient {
+contract Unipool is LPTokenWrapper, IRewardDistributionRecipient {
     IERC20 public razor = IERC20(0x50DE6856358Cc35f3A9a57eAAA34BD4cB707d2cd);
     uint256 public constant DURATION = 120 days;
 

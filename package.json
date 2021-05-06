@@ -11,6 +11,7 @@
     "@openzeppelin/contracts": "^2.4.0"
   },
   "devDependencies": {
+    "@truffle/hdwallet-provider": "1.2.2",
     "chai": "^4.2.0",
     "coveralls": "^3.0.7",
     "eslint": "^6.6.0",
