@@ -20,3 +20,4 @@ contract IRewardDistributionRecipient is Ownable {
         rewardDistribution = _rewardDistribution;
     }
 }
+
